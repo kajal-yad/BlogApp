@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Blog Post</title>
+</head>
+<body>
+    <h2>Edit Blog Post</h2>
+    <form th:action="@{/update}" th:object="${post}" method="post">
+        <!-- Hidden field to hold the ID -->
+        <input type="hidden" th:field="*{id}" />
+
+        <label>Title:</label><br/>
+        <input type="text" th:field="*{title}" required /><br/><br/>
+
+        <label>Content:</label><br/>
+        <textarea th:field="*{content}" rows="5" cols="40" required></textarea><br/><br/>
+
+        <input type="submit" value="Update Post" />
+    </form>
+    <br/>
+    <a href="/">Back to Home</a>
+</body>
+</html>
